@@ -1,21 +1,13 @@
 # pdf2speech-clean
 
-A small **Clean Code / SOLID** Python project that converts a PDF to **one** audio file:
+A small Python project that converts a PDF to **one** audio file:
 
 1) Extract text from PDF (PyMuPDF)
 2) Chunk text into safe sizes
 3) Synthesize each chunk with Edge Neural TTS (edge-tts)
 4) Merge the chunk MP3s into a single MP3 using **ffmpeg concat**
 
-## Why this is “clean” / SOLID
 
-- **Single Responsibility**: text extraction, chunking, TTS, and merging are separate services.
-- **Open/Closed**: you can add a new TTS engine (Azure/OpenAI/etc.) by implementing `TtsEngine`.
-- **Liskov**: engines/mergers follow the same contracts.
-- **Interface Segregation**: small focused interfaces (`TtsEngine`, `AudioMerger`).
-- **Dependency Inversion**: pipeline depends on abstractions, not concrete implementations.
-
----
 
 ## Install
 
