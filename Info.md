@@ -33,7 +33,11 @@ Close and reopen your terminal, then verify:
 ffmpeg -version
 
 
+--tts-retries 8
+--tts-retry-delay 2
+--tts-retry-max-delay 30
+
 my setting :
-python -m pdf2speech --pdf "input.pdf" --out "output.mp3" --voice "en-US-ChristopherNeural" --keep-parts
+python -m pdf2speech --pdf "input.pdf" --out "output.mp3" --voice "en-US-ChristopherNeural" --keep-parts --tts-retries 25
 
 python -m pdf2speech.merge_cli --parts-dir "output_parts" --out "book.mp3"
