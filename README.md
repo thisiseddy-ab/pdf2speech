@@ -55,6 +55,14 @@ Customize chunk size (if you hit service limits):
 python -m pdf2speech --pdf input.pdf --out out.mp3 --max-chars 2800
 ```
 
+Retry temporary Edge TTS network/DNS errors:
+
+```bash
+python -m pdf2speech --pdf input.pdf --out out.mp3 --tts-retries 8 --tts-retry-delay 2 --tts-retry-max-delay 30
+```
+
+The retry logic handles temporary `aiohttp`/DNS/websocket connection failures, recreates the Edge TTS request for every attempt, and removes a partially written `part_XXXX.mp3` before trying again.
+
 ---
 
 
